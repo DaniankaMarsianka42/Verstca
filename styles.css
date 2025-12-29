@@ -44,7 +44,7 @@ header.scrolled {
     box-shadow: 0 8px 15px var(--shadow-strong);
 }
 
-/*ИСПРАВЛЕННЫЙ ЛОГОТИП - РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ*/
+/*ПЕРФЕКТНЫЙ ЛОГОТИП - РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ*/
 .logo {
     width: 80px;
     height: 80px;
@@ -52,7 +52,9 @@ header.scrolled {
     position: relative;
     background: white;
     border-radius: 50%;
-    overflow: hidden; /* ключ к стабильности */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo::before {
@@ -273,45 +275,17 @@ footer {
     margin-top: 60px;
 }
 
-/* МОБИЛЬНАЯ АДАПТИВНОСТЬ */
+/* ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ */
 @media (max-width: 768px) {
+    /* ЛОГОТИП - масштабирование */
+    .logo {
+        transform: scale(0.85);
+    }
+    
     header {
         padding: 12px 20px;
         flex-wrap: wrap;
         gap: 10px;
-    }
-    
-    /*ЛОГОТИП НА ПЛАНШЕТАХ*/
-    .logo {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .logo::before {
-        bottom: 16px;
-        border-left-width: 20px;
-        border-right-width: 20px;
-        border-bottom-width: 26px;
-    }
-    
-    .logo::after {
-        bottom: 32px;
-        border-left-width: 15px;
-        border-right-width: 15px;
-        border-bottom-width: 21px;
-    }
-    
-    .logo .top {
-        bottom: 47px;
-        border-left-width: 10px;
-        border-right-width: 10px;
-        border-bottom-width: 15px;
-    }
-    
-    .logo .trunk {
-        bottom: 8px;
-        width: 8px;
-        height: 13px;
     }
     
     nav {
@@ -368,37 +342,9 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /*ЛОГОТИП НА ТЕЛЕФОНАХ*/
+    /* ЛОГОТИП - маленький телефон */
     .logo {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .logo::before {
-        bottom: 13px;
-        border-left-width: 16px;
-        border-right-width: 16px;
-        border-bottom-width: 22px;
-    }
-    
-    .logo::after {
-        bottom: 27px;
-        border-left-width: 12px;
-        border-right-width: 12px;
-        border-bottom-width: 18px;
-    }
-    
-    .logo .top {
-        bottom: 40px;
-        border-left-width: 8px;
-        border-right-width: 8px;
-        border-bottom-width: 13px;
-    }
-    
-    .logo .trunk {
-        bottom: 6px;
-        width: 6px;
-        height: 11px;
+        transform: scale(0.72);
     }
     
     header {
@@ -425,6 +371,11 @@ footer {
 }
 
 @media (max-width: 360px) {
+    /* ЛОГОТИП - очень маленький экран */
+    .logo {
+        transform: scale(0.65);
+    }
+    
     nav {
         gap: 8px;
     }
