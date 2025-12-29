@@ -1,0 +1,222 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame-with-dots {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.css-image {
+  width: 200px;
+  height: 200px;
+  background-color: #87CEFA;
+  border-width: 20px;
+  border-style: solid;
+  border-image: linear-gradient(to top right, blue 0%, white 100%) 1;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.dot-in-border {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #FDB714;
+  border-radius: 50%;
+  z-index: 2;
+}
+.dot-in-border.top { top: 20px; }
+.dot-in-border.bottom { bottom: 21px; }
+.dot-in-border.left { left: 21px; }
+.dot-in-border.right { right: 21px; }
+a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #0066cc;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Облако */
+.cloud {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 35px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 50px 50px 50px 50px / 30px 30px 30px 30px;
+  filter: blur(2px);
+  z-index: 2;
+}
+
+/* Цвет травы */
+.grass {
+  position: absolute;
+  bottom: 39px;
+  width: 59px;
+  height: 50px;
+  background-color: #22cc22; /* основной зелёный цвет */
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #179217,
+    #179217 4px,
+    transparent 4px,
+    transparent 8px
+  ); /* одноцветные тёмно-зелёные полосы */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 3;
+}
+
+.mushroom {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2; /* выше травы */
+}
+
+/* Большой гриб */
+.mushroom-big {
+  bottom: 50px;
+  left: 43px;
+  width: 80px;
+  height: 100px;
+}
+
+.mushroom-small {
+  bottom: 50px;
+  left: 100px;
+  width: 50px;
+  height: 60px;
+}
+
+/* Шляпка гриба */
+.cap {
+  width: 100%;
+  height: 70%;
+  background: radial-gradient(circle at 50% 30%, #8a665a 0%, #552a24 100%);
+  border-radius: 80% 80% 60% 60% / 100% 100% 40% 40%;
+  border: 1px solid #3a120f;
+  box-shadow: inset -10px -5px 20px rgba(255,255,255,0.3);
+}
+
+/* Ножка гриба */
+.stem {
+  width: 35%;
+  height: 30%;
+  background: #d9d1c9;
+  border-radius: 20% 20% 50% 50%;
+  border: 1px solid #a89b94;
+  margin-top: -8px;
+  box-shadow: inset 3px 3px 6px #f3e9db;
+}
+
+/* Координаты травы, можно адаптировать под свою композицию */
+.grass1 { left: 39px; }
+.grass2 { left: 70px; }
+.grass3 { left: 105px; }
+.grass4 { left: 142px; }
+
+.dragonfly {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  width: 90px;
+  height: 50px;
+  z-index: 5;
+}
+
+/* Тело */
+.dragonfly-body {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 40px;
+  height: 20px;
+  background-color: #d2b72b; /* жёлтый оттенок */
+  border-radius: 50% / 60%;
+  box-shadow: inset -6px 0 15px #b69b23;
+}
+
+/* Голова */
+.dragonfly-head {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  background-color: #d2b72b;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+/* Глаза */
+.eye {
+  position: absolute;
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.eye.left {
+  left: 0px;
+}
+
+.eye.right {
+  left: 6px;
+}
+
+/* Крылья */
+.wing {
+  position: absolute;
+  width: 25px;
+  height: 35px;
+  background-color: rgba(91, 144, 251, 0.7);
+  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  transform-origin: center bottom;
+  box-shadow: 0 0 10px rgba(91, 144, 251, 0.4);
+  filter: drop-shadow(0 0 3px rgba(91,144,251,0.5));
+}
+
+.wing-left-top {
+  top: -15px;
+  left: 20px;
+  transform: rotate(30deg);
+}
+
+.wing-right-top {
+  top: -15px;
+  left: 45px;
+  transform: rotate(20deg);
+}
+
+.wing-left-bottom {
+  top: 25px;
+  left: 15px;
+  transform: rotate(30deg);
+}
+
+.wing-right-bottom {
+  top: -10px;
+  left: 50px;
+  transform: rotate(190deg);
+}
