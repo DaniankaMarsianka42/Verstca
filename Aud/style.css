@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #f5f7fa, #c3cfe2 70%);
+    min-height: 100vh;
+    margin: 0;
+}
+
+#app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#main {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(60,80,160,0.12);
+    width: 320px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+    color: #2a4d7a;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border: 1px solid #99aabb;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+input[type="text"]:focus {
+    border: 1.5px solid #2a4d7a;
+    outline: none;
+}
+
+label {
+    margin: 0 14px 0 0;
+    font-size: 16px;
+    color: #3e3f5e;
+    cursor: pointer;
+}
+
+button {
+    background: #4c74e0;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 26px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 16px;
+    transition: background 0.15s;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #647edc;
+}
+
+#result {
+    margin-top: 22px;
+    font-size: 18px;
+    color: #283246;
+}
+
+#result img {
+    max-width: 100px;
+    border-radius: 8px;
+    margin-top: 12px;
+    box-shadow: 0 3px 14px rgba(40,50,70,0.07);
+}

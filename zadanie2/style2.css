@@ -1,0 +1,184 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toyshop {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Основная полка (фон) */
+.shelf-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Игрушки как отдельные img*/
+.car-img, .boat-img, .boy-img {
+  position: absolute;
+  pointer-events: none;
+  transition: transform .12s linear;
+}
+
+.car-img {
+  width: 54px;
+  height: auto;
+  left: 18px;
+  top: 23px;
+  z-index: 3;
+}
+
+.boat-img {
+  width: 60px;
+  height: auto;
+  left: 68px;
+  top: 95px;
+  z-index: 3;
+}
+
+/* подписи: две вариации — наведение и active */
+.label {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 12px;
+  padding: 8px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #222;
+  background: linear-gradient(135deg, #f7d67a, #f2b01e);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(242, 176, 30, 0.5);
+  border: 1px solid #e3a700;
+  user-select: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  z-index: 15;
+}
+
+
+.label-default {
+  display: none;
+}
+
+.label-buying {
+  display: none;
+}
+
+/* наведение */
+.toyshop:hover .label-default {
+  display: block;
+}
+
+.toyshop:hover .car-img {
+  animation: car-roll 1.1s linear infinite;
+}
+
+.toyshop:hover .boat-img {
+  animation: boat-rock 0.9s ease-in-out infinite;
+}
+
+@keyframes car-roll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(22px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes boat-rock {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(6deg);
+  }
+}
+
+.toyshop:hover .boat-img {
+  animation-direction: alternate;
+}
+
+/* active  */
+.toyshop:active {
+  filter: sepia(1) contrast(.95);
+}
+
+
+
+.toyshop:active .label-buying {
+  display: block;
+  background: linear-gradient(90deg,#ff7a7a,#ffb57a);
+}
+
+.boy-img {
+  width: 44px;
+  height: auto;
+  left: 6px;
+  bottom: 28px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .12s, transform .12s;
+  z-index: 6;
+}
+
+.toyshop:active .boy-img {
+  opacity: 1;
+  transform: translateY(0);
+  animation: boy-path 1s linear infinite;
+}
+
+@keyframes boy-path {
+  from {
+    transform: translate(0, 0);
+  }
+  15% {
+    transform: translate(15px, -10px);
+  }
+  35% {
+    transform: translate(40px, px);
+  }
+  55% {
+    transform: translate(65px, -12px);
+  }
+  75% {
+    transform: translate(95px, -6px);
+  }
+  90% {
+    transform: translate(120px, -3px);
+  }
+  to {
+    transform: translate(132px, 0);
+  }
+}
+
+.toyshop:active .boy-img {
+  animation: boy-path 2s ease-in-out infinite;
+}
+
+
+
+
+
