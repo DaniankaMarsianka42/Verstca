@@ -1,4 +1,4 @@
-/*плавный скролл, по гиперсылкам*/
+/*плавный скролл по гиперссылкам*/
 html {
     scroll-behavior: smooth;
 }
@@ -28,7 +28,7 @@ header {
     background: var(--color-primary);
     color: var(--color-white);
     padding: 15px 30px;
-    position: sticky; /*фиксирует шапку вверху при прокрутке*/
+    position: sticky;
     top: 0;
     display: flex;
     justify-content: space-between;
@@ -37,78 +37,76 @@ header {
     transition: background-color 0.3s ease;
     z-index: 10;
 }
+
 header.scrolled {
     background-color: var(--color-primary-dark, #01579b);
     box-shadow: 0 8px 15px var(--shadow-strong);
 }
 
-
 .logo {
-  width: 80px;      /* фиксированная ширина */
-  height: 80px;     /* фиксированная высота */
-  flex-shrink: 0;   /* отменяем сжатие в flex */
-  position: relative;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    position: relative;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 /* Нижний треугольник */
 .logo::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
-  border-left: 24px solid transparent;
-  border-right: 24px solid transparent;
-  border-bottom: 32px solid #006400;
-  z-index: 3;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-bottom: 32px solid #006400;
+    z-index: 3;
 }
 
 /* Средний треугольник */
 .logo::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 40px;
-  transform: translateX(-50%);
-  border-left: 18px solid transparent;
-  border-right: 18px solid transparent;
-  border-bottom: 26px solid #0b610b;
-  z-index: 2;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 26px solid #0b610b;
+    z-index: 2;
 }
 
 /* Верхний маленький треугольник */
 .logo .top {
-  position: absolute;
-  left: 50%;
-  bottom: 58px;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 18px solid #0e8b0e;
-  z-index: 4;
+    position: absolute;
+    left: 50%;
+    bottom: 58px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 18px solid #0e8b0e;
+    z-index: 4;
 }
 
 /* Ствол */
 .logo .trunk {
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 16px;
-  background: #8b5a2b;
-  border-radius: 1px;
-  z-index: 1;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 16px;
+    background: #8b5a2b;
+    border-radius: 1px;
+    z-index: 1;
 }
-
 
 /*стили для навигационного меню*/
 nav {
@@ -125,22 +123,21 @@ nav a {
     box-shadow: 0 3px 6px var(--shadow-light);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 nav a:hover, nav a.active {
     background: var(--color-primary-light);
     box-shadow: 0 8px 16px var(--shadow-strong);
     color: #002f2f;
 }
 
-/*Главный контент обёрнут в блок с максимальной фиксированной шириной (1140px), 
-центрирован по горизонтали с отступами по бокам и сверху/снизу.*/
+/*Главный контент*/
 main {
     max-width: 1140px;
     margin: 40px auto;
     padding: 0 25px;
 }
 
-/*Описание приветсвенного блока с фоновым изображением и градиентов
-Крупный заголовок с тенью, подзаголовок, и т.д.*/
+/*hero блок*/
 .hero {
     background-image: linear-gradient(145deg, rgba(2,119,189,0.85), rgba(4,98,128,0.75)), url('images/baikal_lake.jpg');
     background-size: cover;
@@ -177,13 +174,16 @@ main {
     box-shadow: 0 8px 20px var(--shadow-light);
     text-transform: uppercase;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
+
 .btn-primary:hover {
     background-color: #0091ea;
     box-shadow: 0 12px 30px rgba(0, 145, 234, 0.6);
 }
 
-/*Стили заголовков и абзадцев для разделов с текстом*/
+/*Стили заголовков и абзацев*/
 .intro-text h2, .highlights h2 {
     font-size: 2.8rem;
     color: var(--color-secondary);
@@ -218,14 +218,17 @@ main {
     text-align: center;
     transition: transform 0.35s ease;
 }
+
 .image-wrapper:hover {
     transform: scale(1.04);
 }
+
 .image-wrapper img {
     width: 100%;
     display: block;
     border-bottom: 5px solid var(--color-primary-light);
 }
+
 .image-wrapper figcaption {
     padding: 12px 0;
     font-style: italic;
@@ -249,6 +252,7 @@ main {
     color: #263238;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 28px 60px rgba(0, 121, 184, 0.35);
@@ -271,21 +275,63 @@ footer {
     letter-spacing: 0.04em;
 }
 
-/* Мобильная адаптивность */
+/* Мобильная адаптивность — УЛУЧШЕННАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
-    .image-wrapper {
-        width: 100%;
+    header {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
     }
+    
     nav {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 16px;
+        gap: 10px;
     }
+    
+    nav a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: 60px 25px;
+        border-radius: 15px;
+    }
+    
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 5vw, 2.5rem); /* fluid шрифт */
     }
+    
     .hero p {
-        font-size: 1.1rem;
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+    }
+    
+    .btn-primary {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+    
+    main {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+    
+    .intro-text h2, .highlights h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+    
+    .image-wrapper {
+        width: 100%;
+    }
+    
+    .highlights .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 20px;
     }
 }
 
@@ -293,6 +339,47 @@ footer {
     header {
         flex-direction: column;
         gap: 15px;
-        padding: 25px 15px;
+        padding: 15px;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Масштабируем треугольники логотипа */
+    .logo::before {
+        border-bottom-width: 24px;
+        border-left-width: 18px;
+        border-right-width: 18px;
+    }
+    
+    .logo::after {
+        border-bottom-width: 20px;
+        border-left-width: 14px;
+        border-right-width: 14px;
+    }
+    
+    nav {
+        order: 3; /* меню ниже логотипа */
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 40px 20px;
+        margin: 0 10px;
+    }
+    
+    footer {
+        padding: 20px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Гамбургер-меню для очень маленьких экранов (опционально, если нужно) */
+@media (max-width: 360px) {
+    nav {
+        display: none; /* спрячь меню, добавь JS для бургера если нужно */
     }
 }
