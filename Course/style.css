@@ -1,0 +1,205 @@
+/* style.css */
+:root {
+    --primary-color: #3498db;
+    --water-color: #00a8ff;
+    --glass-color: rgba(255, 255, 255, 0.3);
+    --bg-color: #2c3e50;
+    --text-color: #ecf0f1;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow: hidden; /* Чтобы не было скролла при перетаскивании */
+    user-select: none;
+}
+
+/* Управление страницами */
+.page {
+    display: none;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* Контейнеры и текст */
+.container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+h1, h2 { margin-bottom: 20px; }
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Кнопки */
+.btn {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.1s;
+    margin: 5px;
+}
+
+.btn:hover { transform: scale(1.05); }
+.btn.warning { background: #f39c12; }
+.btn.danger { background: #e74c3c; }
+.btn.secondary { background: #7f8c8d; }
+
+/* Игровой HUD */
+.game-header {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0,0,0,0.3);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.game-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 50px;
+    width: 100%;
+    position: relative;
+}
+
+/* Сосуды (Jugs) */
+.jug-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.jug {
+    border: 4px solid #fff;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    background: var(--glass-color);
+    position: relative;
+    overflow: hidden;
+    width: 80px; /* Базовая ширина */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Анимация выделения */
+.jug.selected {
+    border-color: #f1c40f;
+    box-shadow: 0 0 15px #f1c40f;
+}
+
+/* Вода */
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--water-color);
+    transition: height 0.5s ease-in-out; /* Анимация уровня */
+    opacity: 0.8;
+}
+
+/* Тряска при ошибке */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Drag and Drop визуализация */
+.dragging {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+.drag-over {
+    transform: scale(1.05);
+    border-color: #2ecc71 !important;
+}
+
+/* Контекстное меню */
+.context-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu li {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.context-menu li:hover {
+    background-color: #ddd;
+}
+
+/* Рейтинг */
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#leaderboard-list li {
+    background: rgba(255,255,255,0.1);
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#clear-leaderboard-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+}

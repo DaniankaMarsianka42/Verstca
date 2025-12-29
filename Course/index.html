@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра "Переливания" - Мастер сосудов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Страница 1: Авторизация / Заставка -->
+    <section id="page-login" class="page active">
+        <div class="container">
+            <h1>🧪 Мастер Переливания</h1>
+            <p class="description">Решите головоломки с сосудами, чтобы стать лучшим!</p>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Введите ваше имя" required autocomplete="off" maxlength="20">
+                <button type="submit" class="btn">🚀 Начать игру</button>
+            </form>
+            <button id="show-leaderboard-btn" class="btn secondary">🏆 Таблица рекордов</button>
+        </div>
+    </section>
+
+    <!-- Страница 2: Игровой процесс -->
+    <section id="page-game" class="page">
+        <div class="game-header">
+            <div class="hud-item">🎯 Уровень: <span id="level-display">1</span></div>
+            <div class="hud-item">⏰ Время: <span id="time-display">60</span>с</div>
+            <div class="hud-item">⭐ Очки: <span id="score-display">0</span></div>
+            <div class="hud-item">🎲 Цель: <span id="target-display">?</span></div>
+        </div>
+
+        <div class="game-info">
+            <p id="level-instruction">Инструкция к уровню появится здесь...</p>
+        </div>
+
+        <!-- Поле для динамического создания сосудов -->
+        <div id="game-area" class="game-area"></div>
+
+        <div class="controls">
+            <button id="restart-level-btn" class="btn warning">🔄 Сброс уровня</button>
+            <button id="abort-game-btn" class="btn danger">❌ Завершить игру</button>
+        </div>
+        
+        <!-- Контекстное меню (скрыто по умолчанию) -->
+        <div id="context-menu" class="context-menu">
+            <ul>
+                <li id="ctx-pour">🔄 Перелить</li>
+                <li id="ctx-empty">🗑️ Вылить (Штраф -50)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Страница 3: Рейтинг / Финал -->
+    <section id="page-results" class="page">
+        <div class="container">
+            <h2 id="result-title">🎉 Игра окончена!</h2>
+            <div class="result-stats">
+                <p>👤 Игрок: <strong id="result-name"></strong></p>
+                <p>⭐ Итоговый счет: <strong id="result-score"></strong></p>
+            </div>
+            
+            <h3>🏆 Топ-10 Рекордов</h3>
+            <ul id="leaderboard-list"></ul>
+
+            <div class="result-buttons">
+                <button id="go-home-btn" class="btn">🏠 На главную</button>
+                <button id="play-again-btn" class="btn secondary">🔄 Играть снова</button>
+                <button id="clear-leaderboard-btn" class="btn danger">🗑️ Очистить рекорды</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
